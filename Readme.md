@@ -38,6 +38,8 @@ It focuses on clarity, modularity, and testability — not backend integration.
 
 _(A simple yet realistic flow for demonstrating architecture and UI composition.)_
 
+![use case](./docs/use-case.drawio.svg)
+
 ## 🏗️ Architecture
 
 ### Project Structure
