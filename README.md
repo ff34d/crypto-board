@@ -79,11 +79,6 @@ src/
 - Unit Tests — logic and utility validation
 - E2E Tests — user flow coverage via Cypress
 
-```bash
-npm run test:unit # Run unit tests
-npm run test:e2e # Run E2E tests
-```
-
 ## ⚙️ Setup & Scripts
 
 ### Installation
@@ -97,11 +92,13 @@ npm install
 ### Development
 
 ```bash
-npm run dev # Start development server
-npm run build # Build production bundle
-npm run preview # Preview production build
-npm run lint # Run linters
-npm run format # Format code
+npm run dev             # Start development server
+npm run test            # Run vitest
+npm run build           # Build production bundle
+npm run lint:eslint     # Run eslint lint
+npm run lint:stylelint  # Run eslint lint
+npm run format          # Format code
+npm run cy:open         # Open cypress tools
 ```
 
 ## 🧩 Key Architectural Decisions
@@ -125,16 +122,6 @@ widgets/
 ├── stores/     # Zustand store (if needed)
 ├── hooks/      # Custom React hooks
 └── index.ts    # Public entry point
-```
-
-## 🚀 Deployment
-
-The project can be deployed as static output (via Vite or GitHub Pages).
-Alternatively, host dynamically on Vercel or Netlify for live demo.
-
-```bash
-npm run build
-npm run preview
 ```
 
 🙏 Acknowledgments
