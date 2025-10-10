@@ -13,14 +13,16 @@ $color: #61dafbaa;
 }
 
 .logo {
+  will-change: filter;
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em $color);
 }
@@ -29,6 +31,7 @@ $color: #61dafbaa;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -44,6 +47,8 @@ $color: #61dafbaa;
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+.read-a {
+  &__deck {
+    color: #888;
+  }
 }
