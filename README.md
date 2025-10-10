@@ -69,7 +69,7 @@ src/
 | UI Components    | Shadcn/ui + SCSS Modules           |
 | State Management | Zustand                            |
 | API Layer        | Axios (mocked CoinGecko endpoints) |
-| Testing          | Vitest + Testing Library + Cypress |
+| Testing          | Vitest + Cypress                   |
 | Code Quality     | ESLint + Stylelint + Prettier      |
 | Git Hooks        | Husky + lint-staged                |
 | CI/CD            | GitHub Actions                     |
@@ -77,7 +77,6 @@ src/
 ## 🧪 Testing Strategy
 
 - Unit Tests — logic and utility validation
-- Integration Tests — component and feature interaction
 - E2E Tests — user flow coverage via Cypress
 
 ```bash
