@@ -1,5 +1,6 @@
 import eslintPluginReact from "@eslint-react/eslint-plugin"
 import js from "@eslint/js"
+import prettier from "eslint-config-prettier"
 import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
@@ -20,6 +21,7 @@ export default defineConfig([
       eslintPluginReact.configs["recommended-typescript"],
       eslintPluginJsxA11y.flatConfigs.strict,
       eslintPluginUnicorn.configs.recommended,
+      prettier,
     ],
     languageOptions: {
       ecmaVersion: 2020,
