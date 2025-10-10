@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build",
     "format": "prettier . --write ",
     "lint:eslint": "eslint . --fix",
-    "lint:stylelint": "stylelint 'src/**/*.{css,scss}' 'src/**/*.module.scss' --fix"
+    "lint:stylelint": "stylelint 'src/**/*.{css,scss}' 'src/**/*.module.scss' --fix",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -22,6 +23,7 @@
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
+    "cypress": "^15.4.0",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
