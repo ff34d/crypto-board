@@ -10,7 +10,21 @@
     "format": "prettier . --write ",
     "lint:eslint": "eslint . --fix",
     "lint:stylelint": "stylelint 'src/**/*.{css,scss}' 'src/**/*.module.scss' --fix",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -31,6 +45,8 @@
     "eslint-plugin-react-refresh": "^0.4.22",
     "eslint-plugin-unicorn": "^61.0.2",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
     "prettier": "^3.6.2",
     "sass": "^1.93.2",
     "stylelint": "^16.25.0",
