@@ -13,8 +13,7 @@ function App() {
         <h1 className={styles.title}>Hello</h1>
         <a
           href="https://vite.dev"
-          rel="noreferrer noopener"
-        >
+          rel="noreferrer noopener">
           <img
             src={viteLogo}
             className="logo"
@@ -23,8 +22,7 @@ function App() {
         </a>
         <a
           href="https://react.dev"
-          rel="noreferrer noopener"
-        >
+          rel="noreferrer noopener">
           <img
             src={reactLogo}
             className="logo react"
@@ -35,12 +33,10 @@ function App() {
       <h1>Vite + React</h1>
       <div
         className="card"
-        id="1"
-      >
+        id="1">
         <button
           onClick={() => setCount((count) => count + 1)}
-          type="button"
-        >
+          type="button">
           count is {count}
         </button>
         <p>
