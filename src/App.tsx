@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./App.css"
 import reactLogo from "./assets/react.svg"
+import styles from "./index.module.scss"
 import viteLogo from "/vite.svg"
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <div>
+        <h1 className={styles.title}>Hello</h1>
         <a
           href="https://vite.dev"
           rel="noreferrer noopener"
