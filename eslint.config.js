@@ -37,6 +37,7 @@ export default defineConfig([
         "error",
         { cases: { pascalCase: true, camelCase: true } },
       ],
+      "unicorn/prevent-abbreviations": "off",
     },
   },
 ])
