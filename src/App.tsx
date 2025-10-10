@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./App.css"
 import reactLogo from "./assets/react.svg"
+import styles from "./index.module.scss"
 import viteLogo from "/vite.svg"
 
 function App() {
@@ -9,10 +10,10 @@ function App() {
   return (
     <>
       <div>
+        <h1 className={styles.title}>Hello</h1>
         <a
           href="https://vite.dev"
-          target="_blank"
-        >
+          rel="noreferrer noopener">
           <img
             src={viteLogo}
             className="logo"
@@ -21,8 +22,7 @@ function App() {
         </a>
         <a
           href="https://react.dev"
-          target="_blank"
-        >
+          rel="noreferrer noopener">
           <img
             src={reactLogo}
             className="logo react"
@@ -33,9 +33,10 @@ function App() {
       <h1>Vite + React</h1>
       <div
         className="card"
-        id="1"
-      >
-        <button onClick={() => setCount((count) => count + 1)}>
+        id="1">
+        <button
+          onClick={() => setCount((count) => count + 1)}
+          type="button">
           count is {count}
         </button>
         <p>

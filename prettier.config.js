@@ -6,7 +6,7 @@ export default {
   tabWidth: 2,
   semi: false,
   singleQuote: false,
-  bracketSameLine: false,
+  bracketSameLine: true,
   bracketSpacing: true,
   singleAttributePerLine: true,
 }

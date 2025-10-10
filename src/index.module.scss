@@ -1,3 +1,10 @@
+$color: #61dafbaa;
+
+.title {
+  font-size: 2rem;
+  color: $color;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -17,7 +24,7 @@
 }
 
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em $color);
 }
 
 @keyframes logo-spin {
@@ -40,6 +47,8 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+.read-a {
+  &__deck {
+    color: #888;
+  }
 }
