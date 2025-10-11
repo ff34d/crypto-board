@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "./constants" as *;
 @use "./mixins" as *;
 
 :root {
@@ -11,17 +12,26 @@
   --color-border: #ffffff26;
 
   /* === Parameters === */
+  --base-text-size: #{$base-size}rem;
+  --base-text-weight: 400;
   --base-transition: var(--base-transition-time) ease-in-out;
   --base-transition-time: 0.3s;
   --base-border: 1px solid var(--color-border);
 
-  /* UI Kit */
+  /* === Base sizes === */
   @include generate-size-variables using ($name, $value) {
-    --text-#{$name}: #{$value};
-    --space-#{$name}: #{$value};
+    --text-#{$name}: #{$value}rem;
+    --space-#{$name}: #{$value}rem;
   }
 
+  /* === Heading === */
+  @include generate-size-variables(2.5) using ($name, $value) {
+    --heading-#{$name}: #{$value}rem;
+    --heading-line-#{$name}: calc($value / 1.6);
+  }
+
+  /* === Element border === */
   @include generate-size-variables(0.7) using ($name, $value) {
-    --rounded-#{$name}: #{$value};
+    --rounded-#{$name}: #{$value}rem;
   }
 }

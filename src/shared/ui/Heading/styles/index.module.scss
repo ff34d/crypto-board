@@ -1,0 +1,12 @@
+@use "$mixins" as *;
+
+.heading {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+
+  @include each-sizes("&__") using ($name) {
+    font-size: var(--heading-#{$name});
+    line-height: var(--heading-line-#{$name});
+  }
+}
