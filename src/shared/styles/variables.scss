@@ -1,0 +1,27 @@
+@use "sass:list";
+@use "./mixins" as *;
+
+:root {
+  /* === Base colors === */
+  --color-primary: #e5e5e5;
+  --color-secondary: #262626;
+  --color-page-background: #0a0a0a;
+  --color-text-light: #d4d4d4;
+  --color-text-dark: #171717;
+  --color-border: #ffffff26;
+
+  /* === Parameters === */
+  --base-transition: var(--base-transition-time) ease-in-out;
+  --base-transition-time: 0.3s;
+  --base-border: 1px solid var(--color-border);
+
+  /* UI Kit */
+  @include generate-size-variables using ($name, $value) {
+    --text-#{$name}: #{$value};
+    --space-#{$name}: #{$value};
+  }
+
+  @include generate-size-variables(0.7) using ($name, $value) {
+    --rounded-#{$name}: #{$value};
+  }
+}

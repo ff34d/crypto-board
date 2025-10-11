@@ -1,0 +1,31 @@
+import type { UIBasePropsWithHTMLElement } from "@/shared/types"
+import { cn } from "@/shared/utils"
+import type { FC, ReactNode } from "react"
+import styles from "../styles/index.module.scss"
+
+interface Props extends UIBasePropsWithHTMLElement<HTMLButtonElement> {
+  children?: ReactNode
+  type?: "button" | "submit"
+}
+
+export const Button: FC<Props> = ({
+  type = "button",
+  size = "md",
+  variant = "primary",
+  children,
+  className,
+  ...args
+}) => {
+  return (
+    <button
+      className={cn(styles.button, {
+        [className as string]: className,
+        [styles[`button__${size}`]]: size,
+        [styles[`button__${variant}`]]: variant,
+      })}
+      type={type}
+      {...args}>
+      {children}
+    </button>
+  )
+}

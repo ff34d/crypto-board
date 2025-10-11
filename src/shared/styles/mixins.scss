@@ -1,0 +1,70 @@
+@use "./constants" as *;
+@use "./functions" as *;
+
+/* === Sizes === */
+@mixin each-sizes($prefix) {
+  @each $size-name, $size-step in $sizes {
+    #{$prefix}#{$size-name} {
+      @content ($size-name);
+    }
+  }
+}
+
+/* === Variants === */
+@mixin variant-primary {
+  &__primary {
+    color: var(--color-text-dark);
+    background-color: var(--color-primary);
+
+    @include base-interactive;
+    @content;
+  }
+}
+
+@mixin variant-outline {
+  &__outline {
+    border: var(--base-border);
+    color: var(--color-text-light);
+    background-color: color-mix(
+      in srgb,
+      var(--color-page-background) 97%,
+      white 3%
+    );
+
+    @include base-interactive;
+    @content;
+  }
+}
+
+@mixin variant-secondary {
+  &__secondary {
+    color: inherit;
+    background-color: var(--color-secondary);
+
+    @include base-interactive;
+    @content;
+  }
+}
+
+/**
+ * $scale - step exponent 
+ * return @content with $name - size name, $value - computed size
+ */
+@mixin generate-size-variables($scale: $scale-size) {
+  @each $size-name, $size-step in $sizes {
+    @content ($name: $size-name, $value: calc-size($size-step, $scale));
+  }
+}
+
+/* === Animations === */
+@mixin base-interactive {
+  transition: filter var(--base-transition);
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  &:active {
+    filter: brightness(0.5);
+  }
+}

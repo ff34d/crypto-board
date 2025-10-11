@@ -1,0 +1,6 @@
+@use "sass:math";
+@use "./constants" as *;
+
+@function calc-size($step, $scale) {
+  @return $base-size * ($scale * $step);
+}

@@ -1,0 +1,18 @@
+@use "$mixins" as *;
+
+.button {
+  cursor: pointer;
+  border: 0;
+
+  /* === Sizes === */
+  @include each-sizes("&__") using ($size) {
+    padding: calc(var(--space-#{$size}) / 4) calc(var(--space-#{$size}) * 1.2);
+    border-radius: var(--rounded-#{$size});
+    font-size: var(--text-#{$size});
+  }
+
+  /* === Variants === */
+  @include variant-primary;
+  @include variant-outline;
+  @include variant-secondary;
+}
