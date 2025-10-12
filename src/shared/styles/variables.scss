@@ -23,16 +23,12 @@
     --text-#{$name}: #{$value}rem;
     --text-line-#{$name}: #{calc($value * 1.15)};
     --space-#{$name}: #{$value}rem;
+    --rounded-#{$name}: #{calc($value * 0.5)}rem;
   }
 
   /* === Heading === */
   @include generate-size-variables(2.5) using ($name, $value) {
     --heading-#{$name}: #{$value}rem;
     --heading-line-#{$name}: #{calc($value * 0.7)};
-  }
-
-  /* === Element border === */
-  @include generate-size-variables(0.7) using ($name, $value) {
-    --rounded-#{$name}: #{$value}rem;
   }
 }
