@@ -7,3 +7,7 @@ body {
 
   background-color: var(--color-page-background);
 }
+
+*:focus-visible {
+  outline: 1px solid var(--color-accent);
+}
