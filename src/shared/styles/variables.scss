@@ -21,6 +21,7 @@
   /* === Base sizes === */
   @include generate-size-variables using ($name, $value) {
     --text-#{$name}: #{$value}rem;
+    --text-line-#{$name}: #{calc($value * 1.15)};
     --space-#{$name}: #{$value}rem;
   }
 

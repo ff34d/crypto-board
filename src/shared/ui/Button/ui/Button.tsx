@@ -1,10 +1,11 @@
-import type { UIBasePropsWithHTMLElement } from "@/shared/types"
+import type { UIBasePropsWithHTMLElement, UIVariant } from "@/shared/types"
 import { cn } from "@/shared/utils"
 import type { FC, ReactNode } from "react"
 import styles from "../styles/index.module.scss"
 
 interface Props extends UIBasePropsWithHTMLElement<HTMLButtonElement> {
   children?: ReactNode
+  variant?: UIVariant
   type?: "button" | "submit"
 }
 

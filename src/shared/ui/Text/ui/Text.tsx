@@ -3,32 +3,30 @@ import { cn } from "@/shared/utils"
 import type { FC, ReactNode } from "react"
 import styles from "../styles/index.module.scss"
 
-interface Props extends UIBasePropsWithHTMLElement<HTMLHeadingElement> {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+interface Props extends UIBasePropsWithHTMLElement<HTMLParagraphElement> {
   weight?: number
   children?: ReactNode
 }
 
-export const Heading: FC<Props> = ({
-  as: Component = "h1",
+export const Text: FC<Props> = ({
   size = "md",
-  weight = 600,
+  weight = 400,
   className,
   children,
   ...args
 }) => {
   return (
-    <Component
+    <p
       {...args}
-      className={cn(styles.heading, {
+      className={cn(styles.text, {
         [className as string]: className,
-        [styles[`heading__${size}`]]: size,
+        [styles[`text__${size}`]]: size,
       })}
       style={{
         fontWeight: weight,
         ...args.style,
       }}>
       {children}
-    </Component>
+    </p>
   )
 }
