@@ -16,7 +16,6 @@
     color: var(--color-text-dark);
     background-color: var(--color-primary);
 
-    @include base-interactive;
     @content;
   }
 }
@@ -31,7 +30,6 @@
       white 3%
     );
 
-    @include base-interactive;
     @content;
   }
 }
@@ -41,7 +39,6 @@
     color: inherit;
     background-color: var(--color-secondary);
 
-    @include base-interactive;
     @content;
   }
 }
