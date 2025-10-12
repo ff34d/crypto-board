@@ -1,6 +1,13 @@
-import { type FC } from "react"
+import { Badge, Button, Input, Select } from "@/shared/ui"
+import { useEffect, useState, type FC } from "react"
 
 export const MainPage: FC = () => {
+  const [state, setState] = useState<string | undefined>()
+
+  useEffect(() => {
+    console.log(state)
+  }, [state])
+
   return (
     <div
       className="page"
@@ -12,7 +19,39 @@ export const MainPage: FC = () => {
         alignItems: "center",
         minHeight: "100vh",
       }}>
-      Main
+      <Select
+        value={state}
+        setValue={setState}
+        options={[
+          { label: "Hello 1", value: "hello1" },
+          { label: "Hello 2", value: "hello2" },
+          { label: "Hello 3", value: "hello3" },
+        ]}
+      />
+      <Select
+        variant="secondary"
+        value={state}
+        setValue={setState}
+        options={[
+          { label: "Hello 1", value: "hello1" },
+          { label: "Hello 2", value: "hello2" },
+          { label: "Hello 3", value: "hello3" },
+        ]}
+      />
+      <Select
+        variant="outline"
+        value={state}
+        setValue={setState}
+        options={[
+          { label: "Hello 1", value: "hello1" },
+          { label: "Hello 2", value: "hello2" },
+          { label: "Hello 3", value: "hello3" },
+        ]}
+      />
+
+      <Button>Hello</Button>
+      <Badge size="md">Hello</Badge>
+      <Input size="md" />
     </div>
   )
 }

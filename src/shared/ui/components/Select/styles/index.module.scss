@@ -1,9 +1,6 @@
 @use "$mixins" as *;
 
-.button {
-  cursor: pointer;
-  border: 0;
-
+.select {
   /* === Sizes === */
   @include each-sizes("&__") using ($name) {
     padding: calc(var(--space-#{$name}) / 4) calc(var(--space-#{$name}) * 1.2);
