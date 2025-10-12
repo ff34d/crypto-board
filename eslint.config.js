@@ -38,6 +38,15 @@ export default defineConfig([
         { cases: { pascalCase: true, camelCase: true } },
       ],
       "unicorn/prevent-abbreviations": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+          destructuredArrayIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
     },
   },
 ])

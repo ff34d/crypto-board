@@ -1,0 +1,11 @@
+@use "$mixins" as *;
+
+.tile {
+  /* === Sizes === */
+  @include each-sizes("&__") using ($name) {
+    padding: var(--space-#{$name});
+    border-radius: var(--rounded-#{$name});
+  }
+
+  @include all-variants;
+}

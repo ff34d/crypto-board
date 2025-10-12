@@ -1,0 +1,16 @@
+@use "$mixins" as *;
+
+.input {
+  border: 0;
+  transition: outline ease 0.1s;
+
+  /* === Sizes === */
+  @include each-sizes("&__") using ($name) {
+    padding: calc(var(--space-#{$name}) / 4) calc(var(--space-#{$name}) * 1.2);
+    border-radius: var(--rounded-#{$name});
+    font-size: var(--text-#{$name});
+    line-height: var(--text-line-#{$name});
+  }
+
+  @include all-variants;
+}

@@ -1,0 +1,39 @@
+@use "sass:list";
+@use "./constants" as *;
+@use "./mixins" as *;
+
+:root {
+  /* === Base colors === */
+  --color-primary: #e5e5e5;
+  --color-secondary: #262626;
+  --color-accent: orange;
+  --color-error: #f44040;
+  --color-info: #466dcd;
+  --color-success: #04ba04;
+  --color-page-background: #0a0a0a;
+  --color-text-light: #d4d4d4;
+  --color-text-dark: #171717;
+  --color-border: #ffffff26;
+  --color-skeleton: #404040;
+
+  /* === Parameters === */
+  --base-text-size: #{$base-size}rem;
+  --base-text-weight: 400;
+  --base-transition: var(--base-transition-time) ease-in-out;
+  --base-transition-time: 0.3s;
+  --base-border: 1px solid var(--color-border);
+
+  /* === Base sizes === */
+  @include generate-size-variables using ($name, $value) {
+    --text-#{$name}: #{$value}rem;
+    --text-line-#{$name}: #{calc($value * 1.15)};
+    --space-#{$name}: #{$value}rem;
+    --rounded-#{$name}: #{calc($value * 0.5)}rem;
+  }
+
+  /* === Heading === */
+  @include generate-size-variables(2.5) using ($name, $value) {
+    --heading-#{$name}: #{$value}rem;
+    --heading-line-#{$name}: #{calc($value * 0.7)};
+  }
+}

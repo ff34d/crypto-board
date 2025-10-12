@@ -1,0 +1,33 @@
+import type { UIBasePropsWithHTMLElement } from "@/shared/types"
+import { cn } from "@/shared/utils"
+import type { FC, ReactNode } from "react"
+import styles from "../styles/index.module.scss"
+
+interface Props extends UIBasePropsWithHTMLElement<HTMLHeadingElement> {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+  weight?: number
+  children?: ReactNode
+}
+
+export const Heading: FC<Props> = ({
+  as: Component = "h1",
+  size = "md",
+  weight = 600,
+  className,
+  children,
+  ...args
+}) => {
+  return (
+    <Component
+      {...args}
+      className={cn(styles.heading, styles[`heading__${size}`], {
+        [className as string]: className,
+      })}
+      style={{
+        fontWeight: weight,
+        ...args.style,
+      }}>
+      {children}
+    </Component>
+  )
+}

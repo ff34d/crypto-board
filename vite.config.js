@@ -7,6 +7,8 @@ export default {
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+
+      $mixins: path.resolve(__dirname, "./src/shared/styles/mixins"),
     },
   },
   server: {

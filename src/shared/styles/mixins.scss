@@ -1,0 +1,103 @@
+@use "./constants" as *;
+@use "./functions" as *;
+
+/* === Sizes === */
+@mixin each-sizes($prefix) {
+  @each $size-name, $size-step in $sizes {
+    #{$prefix}#{$size-name} {
+      @content ($size-name);
+    }
+  }
+}
+
+/* === Variants === */
+@mixin all-variants {
+  @include variant-primary;
+  @include variant-secondary;
+  @include variant-outline;
+  @include variant-error;
+  @include variant-info;
+  @include variant-success;
+}
+
+@mixin base-variant($name) {
+  &__#{$name} {
+    @content;
+  }
+}
+
+@mixin variant-primary {
+  @include base-variant("primary") {
+    color: var(--color-text-dark);
+    background-color: var(--color-primary);
+    @content;
+  }
+}
+
+@mixin variant-outline {
+  @include base-variant("outline") {
+    border: var(--base-border);
+    color: var(--color-text-light);
+    background-color: color-mix(
+      in srgb,
+      var(--color-page-background) 97%,
+      white 3%
+    );
+    @content;
+  }
+}
+
+@mixin variant-secondary {
+  @include base-variant("secondary") {
+    color: inherit;
+    background-color: var(--color-secondary);
+    @content;
+  }
+}
+
+@mixin variant-error {
+  @include base-variant("error") {
+    color: inherit;
+    background-color: var(--color-error);
+    @content;
+  }
+}
+
+@mixin variant-info {
+  @include base-variant("info") {
+    color: inherit;
+    background-color: var(--color-info);
+    @content;
+  }
+}
+
+@mixin variant-success {
+  @include base-variant("success") {
+    color: var(--color-text-dark);
+    background-color: var(--color-success);
+    @content;
+  }
+}
+
+/**
+ * $scale - step exponent 
+ * return @content with $name - size name, $value - computed size
+ */
+@mixin generate-size-variables($scale: $scale-size) {
+  @each $size-name, $size-step in $sizes {
+    @content ($name: $size-name, $value: calc-size($size-step, $scale));
+  }
+}
+
+/* === Animations === */
+@mixin base-interactive {
+  transition: filter var(--base-transition);
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  &:active {
+    filter: brightness(0.5);
+  }
+}

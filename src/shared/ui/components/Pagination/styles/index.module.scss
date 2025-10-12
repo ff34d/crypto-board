@@ -1,0 +1,35 @@
+@use "$mixins" as *;
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  &__button {
+    cursor: pointer;
+    border: 0;
+    color: inherit;
+    background: transparent;
+
+    @include base-interactive;
+
+    &::after {
+      width: 10px;
+      height: 10px;
+      color: inherit;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__button--prev::after {
+    content: "<";
+  }
+
+  &__button--next::after {
+    content: ">";
+  }
+}
