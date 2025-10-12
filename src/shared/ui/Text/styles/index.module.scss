@@ -1,6 +1,7 @@
 @use "$mixins" as *;
 
 .text {
+  /* Sizes */
   @include each-sizes("&__") using ($name) {
     font-size: var(--text-#{$name});
     line-height: var(--text-line-#{$name});
