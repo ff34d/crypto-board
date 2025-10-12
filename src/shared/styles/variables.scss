@@ -28,7 +28,7 @@
   /* === Heading === */
   @include generate-size-variables(2.5) using ($name, $value) {
     --heading-#{$name}: #{$value}rem;
-    --heading-line-#{$name}: calc($value / 1.6);
+    --heading-line-#{$name}: #{calc($value * 0.7)};
   }
 
   /* === Element border === */
