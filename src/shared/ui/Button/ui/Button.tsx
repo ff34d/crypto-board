@@ -19,11 +19,12 @@ export const Button: FC<Props> = ({
 }) => {
   return (
     <button
-      className={cn(styles.button, {
-        [className as string]: className,
-        [styles[`button__${size}`]]: size,
-        [styles[`button__${variant}`]]: variant,
-      })}
+      className={cn(
+        styles.button,
+        styles[`button__${size}`],
+        styles[`button__${variant}`],
+        { [className as string]: className }
+      )}
       type={type}
       {...args}>
       {children}

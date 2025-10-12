@@ -20,9 +20,8 @@ export const Heading: FC<Props> = ({
   return (
     <Component
       {...args}
-      className={cn(styles.heading, {
+      className={cn(styles.heading, styles[`heading__${size}`], {
         [className as string]: className,
-        [styles[`heading__${size}`]]: size,
       })}
       style={{
         fontWeight: weight,
