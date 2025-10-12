@@ -1,0 +1,22 @@
+@use "$mixins" as *;
+
+.loader {
+  overflow: hidden;
+
+  aspect-ratio: 1/1;
+  width: 100%;
+  border-top: 0.2rem solid var(--color-accent);
+  border-radius: 50%;
+
+  animation: linear infinite 1s spin;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
