@@ -1,0 +1,34 @@
+$border: 0.05rem solid var(--color-border);
+
+.table {
+  overflow: hidden;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  & th {
+    background-color: var(--color-border);
+  }
+
+  & td {
+    border-bottom: $border;
+  }
+
+  & td,
+  th {
+    max-width: 2rem;
+    padding: 0.5rem 1rem;
+    border-right: $border;
+    border-left: $border;
+
+    text-align: center;
+  }
+
+  & th:last-child {
+    border-right: unset;
+  }
+}
