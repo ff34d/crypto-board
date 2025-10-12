@@ -1,4 +1,4 @@
-import { Loader } from "@/shared/ui"
+import { Skeleton } from "@/shared/ui"
 import { type FC } from "react"
 
 export const MainPage: FC = () => {
@@ -13,7 +13,11 @@ export const MainPage: FC = () => {
         alignItems: "center",
         minHeight: "100vh",
       }}>
-      <Loader maxWeight={10} />
+      <Skeleton
+        width={10}
+        height={2}
+        rounded={10}
+      />
     </div>
   )
 }

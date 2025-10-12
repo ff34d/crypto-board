@@ -4,12 +4,12 @@ import styles from "../styles/index.module.scss"
 
 interface Props extends HTMLProps<HTMLDivElement> {
   /**
-   * Max weight, rem unit
+   * Width, rem unit
    */
-  maxWeight?: number
+  width?: number
 }
 
-export const Loader: FC<Props> = ({ maxWeight = 5, className, ...args }) => {
+export const Loader: FC<Props> = ({ width = 5, className, ...args }) => {
   return (
     <div
       {...args}
@@ -17,7 +17,7 @@ export const Loader: FC<Props> = ({ maxWeight = 5, className, ...args }) => {
         [className as string]: className,
       })}
       style={{
-        maxWidth: `${maxWeight}rem`,
+        maxWidth: `${width}rem`,
         ...args.style,
       }}
     />
