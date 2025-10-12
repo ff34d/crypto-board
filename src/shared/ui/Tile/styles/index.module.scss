@@ -7,8 +7,5 @@
     border-radius: var(--rounded-#{$name});
   }
 
-  /* === Variants === */
-  @include variant-primary;
-  @include variant-secondary;
-  @include variant-outline;
+  @include all-variants;
 }

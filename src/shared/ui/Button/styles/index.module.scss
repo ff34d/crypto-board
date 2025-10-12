@@ -11,10 +11,6 @@
     font-size: var(--text-#{$size});
   }
 
-  /* === Variants === */
-  @include variant-primary;
-  @include variant-outline;
-  @include variant-secondary;
-
+  @include all-variants;
   @include base-interactive;
 }
