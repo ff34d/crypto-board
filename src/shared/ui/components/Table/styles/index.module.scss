@@ -20,12 +20,10 @@ $border: 0.05rem solid var(--color-border);
 
   & td,
   th {
-    max-width: 2rem;
-    padding: 0.5rem 1rem;
+    width: min-content;
+    padding: 0.3rem 0.5rem;
     border-right: $border;
     border-left: $border;
-
-    text-align: center;
   }
 
   & th:last-child {
