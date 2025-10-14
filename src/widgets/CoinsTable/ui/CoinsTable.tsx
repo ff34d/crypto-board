@@ -1,22 +1,26 @@
-import { coinService } from "@/entities/coin"
-import { useQuery } from "@/shared/api"
-import { Box, Loader, Pagination, Table } from "@/shared/ui"
-import { useState, type FC } from "react"
+import { useCoinsListStore, useCoinsMarketsStore } from "@/entities/coin"
+import { Box, Loader, Pagination, Table, Text } from "@/shared/ui"
+import { useEffect, useMemo, type FC } from "react"
 import { CoinsTableRow } from "./CoinsTableRow"
 
 export const CoinsTable: FC = () => {
-  const { data: coins, isLoading } = useQuery(() => {
-    return coinService.getCoinsMarkets()
-  })
+  const coinsMarkets = useCoinsMarketsStore()
+  const coinsList = useCoinsListStore()
+  const totalPages = useMemo(
+    () => Math.floor((coinsList.data?.length || 0) / coinsMarkets.perPage),
+    [coinsList.data]
+  )
 
-  const [pagedCoins, setPagedCoins] = useState(coins || [])
+  useEffect(() => {
+    if (!coinsList.data) coinsList.fetchCoinsList()
+    if (!coinsMarkets.data) coinsMarkets.fetchCoinsMarkets()
+  }, [])
 
-  if (isLoading || !coins) return <Loader />
+  if (coinsMarkets.isLoading) return <Loader />
+  if (!coinsMarkets.data) return <Text>No math coins</Text>
 
   return (
-    <Box
-      align="column"
-      className="fade">
+    <Box align="column">
       <Table>
         <thead>
           <tr>
@@ -29,8 +33,8 @@ export const CoinsTable: FC = () => {
           </tr>
         </thead>
         <tbody>
-          {pagedCoins &&
-            pagedCoins.map((coin) => {
+          {coinsMarkets.data &&
+            coinsMarkets.data.map((coin) => {
               return (
                 <CoinsTableRow
                   data={coin}
@@ -42,9 +46,10 @@ export const CoinsTable: FC = () => {
       </Table>
 
       <Pagination
-        data={coins}
-        setPagedData={setPagedCoins}
-        step={15}
+        currentPage={coinsMarkets.currentPage}
+        totalPages={totalPages}
+        increment={() => coinsMarkets.movePageAndFetchCoins("next")}
+        decrement={() => coinsMarkets.movePageAndFetchCoins("prev")}
       />
     </Box>
   )

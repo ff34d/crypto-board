@@ -23,6 +23,11 @@
     &:hover {
       text-decoration: underline;
     }
+
+    &:disabled {
+      pointer-events: none;
+      filter: brightness(40%);
+    }
   }
 
   &__button--prev::after {
