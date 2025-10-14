@@ -11,6 +11,11 @@ export const CoinsTable: FC = () => {
     [coinsList.data]
   )
 
+  const handleMovePage = (align: "prev" | "next") => {
+    coinsMarkets.movePageAndFetchCoins(align)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   useEffect(() => {
     if (!coinsList.data) coinsList.fetchCoinsList()
     if (!coinsMarkets.data) coinsMarkets.fetchCoinsMarkets()
@@ -33,23 +38,22 @@ export const CoinsTable: FC = () => {
           </tr>
         </thead>
         <tbody>
-          {coinsMarkets.data &&
-            coinsMarkets.data.map((coin) => {
-              return (
-                <CoinsTableRow
-                  data={coin}
-                  key={coin.id}
-                />
-              )
-            })}
+          {coinsMarkets.data.map((coin) => {
+            return (
+              <CoinsTableRow
+                data={coin}
+                key={coin.id}
+              />
+            )
+          })}
         </tbody>
       </Table>
 
       <Pagination
         currentPage={coinsMarkets.currentPage}
         totalPages={totalPages}
-        increment={() => coinsMarkets.movePageAndFetchCoins("next")}
-        decrement={() => coinsMarkets.movePageAndFetchCoins("prev")}
+        increment={() => handleMovePage("next")}
+        decrement={() => handleMovePage("prev")}
       />
     </Box>
   )
