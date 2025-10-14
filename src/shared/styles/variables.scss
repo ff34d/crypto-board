@@ -23,6 +23,10 @@
   --base-transition-time: 0.3s;
   --base-border: 1px solid var(--color-border);
 
+  /* === Constants === */
+  --layout-padding-x: 2rem;
+  --layout-padding-y: 2rem;
+
   /* === Base sizes === */
   @include generate-size-variables using ($name, $value) {
     --text-#{$name}: #{$value}rem;

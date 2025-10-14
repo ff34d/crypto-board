@@ -18,13 +18,14 @@ body {
 }
 
 .layout {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  padding: 0 1rem;
 
   & main {
     width: 100%;
-    padding-top: 2rem;
+    padding: var(--layout-padding-y) var(--layout-padding-x);
   }
 }
 

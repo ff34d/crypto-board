@@ -22,7 +22,7 @@ export const useCoinsMarketsStore = create<State>((set, get) => ({
   error: null,
   data: null,
   currentPage: 1,
-  perPage: 15,
+  perPage: 20,
   order: "market_cap_desc",
 
   fetchCoinsMarkets: async () => {
