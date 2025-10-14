@@ -1,12 +1,11 @@
-import coinsMarkets from "../_mocks/coinsMarkets.json"
-
-function mockReq() {
-  return new Promise<void>((resolve) => setTimeout(() => resolve(), 1000))
-}
+import { ApiEndpoint, http } from "@/shared/api"
+import type { CoinsMarketItem } from "../types"
 
 export const coinService = {
   async getCoinsMarkets() {
-    await mockReq()
-    return coinsMarkets
+    return await http<CoinsMarketItem[]>({
+      method: "GET",
+      url: ApiEndpoint.getCoinsMarkets,
+    })
   },
 }

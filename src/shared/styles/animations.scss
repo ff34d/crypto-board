@@ -1,0 +1,13 @@
+.fade {
+  animation: fade var(--base-transition-time) ease-in forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

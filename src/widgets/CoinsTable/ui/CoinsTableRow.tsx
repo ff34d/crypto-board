@@ -19,7 +19,7 @@ export const CoinsTableRow: FC<Props> = ({ data }) => {
           <Box gap={0.2}>
             <img
               className={styles["table__coin-img"]}
-              src={data.image.slice(1, -1)}
+              src={data.image}
               alt={data.name}
             />
 

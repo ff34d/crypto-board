@@ -38,6 +38,7 @@ export default defineConfig([
         { cases: { pascalCase: true, camelCase: true } },
       ],
       "unicorn/prevent-abbreviations": "off",
+      "react-hooks/exhaustive-deps": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
