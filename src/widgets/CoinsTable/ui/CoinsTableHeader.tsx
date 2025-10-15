@@ -2,6 +2,7 @@ import { useCoinsMarketsStore, type CoinsMarketOrder } from "@/entities/coin"
 import { SortButton } from "@/shared/ui"
 import type { FC } from "react"
 import { coinsTableHeaderConfig } from "../config"
+import styles from "../styles/index.module.scss"
 
 export const CoinsTableHeader: FC = () => {
   const order = useCoinsMarketsStore((s) => s.order)
@@ -14,7 +15,7 @@ export const CoinsTableHeader: FC = () => {
   }
 
   return (
-    <thead>
+    <thead className={styles.table__header}>
       <tr>
         {coinsTableHeaderConfig.map((item) => {
           const sortableKeys = item.sortableKeys

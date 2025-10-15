@@ -18,6 +18,7 @@
   &::before {
     content: ">";
 
+    z-index: 1;
     transform-origin: center center;
 
     display: block;

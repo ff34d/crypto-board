@@ -1,4 +1,4 @@
-import type { CoinsMarketItem } from "@/entities/coin"
+import { CoinTrendValue, type CoinsMarketItem } from "@/entities/coin"
 import { Badge, Box, Text } from "@/shared/ui"
 import type { FC } from "react"
 import styles from "../styles/index.module.scss"
@@ -47,19 +47,26 @@ export const CoinsTableRow: FC<Props> = ({
         </Box>
       </td>
 
-      <td align="center">
-        {current_price ? "$" + current_price.toLocaleString("en-US") : "–"}
+      <td align="left">
+        {current_price
+          ? current_price < 0.01
+            ? "$" + current_price.toLocaleString("en-US", { minimumFractionDigits: 8 })
+            : "$" + current_price.toLocaleString("en-US")
+          : "–"}
       </td>
 
-      <td align="center">
-        {price_change_percentage_24h ? price_change_percentage_24h.toFixed(2) + "%" : "–"}
+      <td align="left">
+        <CoinTrendValue
+          trend={price_change_percentage_24h !== null && price_change_percentage_24h > 0}>
+          {price_change_percentage_24h
+            ? Math.abs(price_change_percentage_24h).toFixed(2) + "%"
+            : "–"}
+        </CoinTrendValue>
       </td>
 
-      <td align="center">
-        {market_cap ? "$" + market_cap.toLocaleString("en-US") : "–"}
-      </td>
+      <td align="left">{market_cap ? "$" + market_cap.toLocaleString("en-US") : "–"}</td>
 
-      <td align="center">
+      <td align="left">
         {total_volume ? "$" + total_volume.toLocaleString("en-US") : "–"}
       </td>
     </tr>
