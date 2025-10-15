@@ -22,8 +22,6 @@ $border: 0.05rem solid var(--color-border);
   th {
     width: min-content;
     padding: 0.3rem 0.5rem;
-    border-right: $border;
-    border-left: $border;
   }
 
   & th:last-child {

@@ -40,6 +40,7 @@ export default defineConfig([
       ],
       "unicorn/prevent-abbreviations": "off",
       "unicorn/no-null": "off",
+      "unicorn/no-array-sort": "off",
 
       /* === React-hooks === */
       "react-hooks/exhaustive-deps": "off",

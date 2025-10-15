@@ -1,18 +1,21 @@
 import { useCoinsListStore, useCoinsMarketsStore } from "@/entities/coin"
 import { Box, Loader, Pagination, Table, Text } from "@/shared/ui"
 import { useEffect, useMemo, type FC } from "react"
+import { CoinsTableHeader } from "./CoinsTableHeader"
 import { CoinsTableRow } from "./CoinsTableRow"
 
 export const CoinsTable: FC = () => {
-  const coinsMarkets = useCoinsMarketsStore()
   const coinsList = useCoinsListStore()
+  const coinsMarkets = useCoinsMarketsStore()
+
   const totalPages = useMemo(
-    () => Math.floor((coinsList.data?.length || 0) / coinsMarkets.perPage),
+    () => Math.ceil((coinsList.data?.length || 0) / coinsMarkets.perPage),
     [coinsList.data]
   )
 
   const handleMovePage = (align: "prev" | "next") => {
-    coinsMarkets.movePageAndFetchCoins(align)
+    coinsMarkets.movePage(align)
+    coinsMarkets.fetchCoinsMarkets()
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
@@ -21,22 +24,13 @@ export const CoinsTable: FC = () => {
     if (!coinsMarkets.data) coinsMarkets.fetchCoinsMarkets()
   }, [])
 
-  if (coinsMarkets.isLoading) return <Loader />
+  if (coinsMarkets.isLoading && !coinsMarkets.data) return <Loader />
   if (!coinsMarkets.data) return <Text>No math coins</Text>
 
   return (
     <Box align="column">
       <Table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Coin</th>
-            <th>Price</th>
-            <th>24h</th>
-            <th>Market cap.</th>
-            <th>Total volume</th>
-          </tr>
-        </thead>
+        <CoinsTableHeader />
         <tbody>
           {coinsMarkets.data.map((coin) => {
             return (

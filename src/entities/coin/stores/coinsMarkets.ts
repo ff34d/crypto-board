@@ -8,7 +8,8 @@ interface State {
   currentPage: number
   perPage: number
   order: CoinsMarketOrder
-  movePageAndFetchCoins: (align: "prev" | "next") => void
+  movePage: (align: "prev" | "next") => void
+  setOrder: (order: State["order"] | undefined) => void
 
   /* === Api === */
   isLoading: boolean
@@ -21,9 +22,19 @@ export const useCoinsMarketsStore = create<State>((set, get) => ({
   isLoading: false,
   error: null,
   data: null,
-  currentPage: 1,
   perPage: 20,
+
+  currentPage: 1,
+  movePage: (align) => {
+    const page = get().currentPage
+    set({ currentPage: Math.max(1, align === "prev" ? page - 1 : page + 1) })
+  },
+
   order: "market_cap_desc",
+  setOrder: (order) => {
+    if (!order) return
+    set({ order })
+  },
 
   fetchCoinsMarkets: async () => {
     set({ isLoading: true, error: null })
@@ -40,11 +51,5 @@ export const useCoinsMarketsStore = create<State>((set, get) => ({
     } finally {
       set({ isLoading: false })
     }
-  },
-
-  movePageAndFetchCoins: (align) => {
-    const page = get().currentPage
-    set({ currentPage: Math.max(1, align === "prev" ? page - 1 : page + 1) })
-    get().fetchCoinsMarkets()
   },
 }))
