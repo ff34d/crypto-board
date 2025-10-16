@@ -29,9 +29,7 @@ export const CoinsTableHeader: FC = () => {
           } else direction = null
 
           return (
-            <th
-              key={item.title}
-              align="center">
+            <th key={item.title}>
               {sortableKeys ? (
                 <SortButton
                   direction={direction}

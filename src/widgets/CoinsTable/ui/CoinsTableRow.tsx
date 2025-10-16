@@ -26,7 +26,7 @@ export const CoinsTableRow: FC<Props> = ({
 
       {/* Coin name */}
       <td>
-        <Box gap={0.2}>
+        <Box gap={0.7}>
           <img
             className={styles["table__coin-img"]}
             src={image}
@@ -35,6 +35,13 @@ export const CoinsTableRow: FC<Props> = ({
 
           <Box gap={0.3}>
             <Text
+              style={{
+                lineHeight: 1.3,
+                maxWidth: "15rem",
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+                textWrap: "nowrap",
+              }}
               size="lg"
               weight={600}>
               {name}

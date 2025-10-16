@@ -1,6 +1,7 @@
 import { useCoinsListStore, useCoinsMarketsStore } from "@/entities/coin"
 import { Box, Loader, Pagination, Table, Text } from "@/shared/ui"
 import { useEffect, useMemo, type FC } from "react"
+import styles from "../styles/index.module.scss"
 import { CoinsTableHeader } from "./CoinsTableHeader"
 import { CoinsTableRow } from "./CoinsTableRow"
 
@@ -29,8 +30,9 @@ export const CoinsTable: FC = () => {
 
   return (
     <Box align="column">
-      <Table>
+      <Table className={styles.table}>
         <CoinsTableHeader />
+
         <tbody>
           {coinsMarkets.data.map((coin) => {
             return (
