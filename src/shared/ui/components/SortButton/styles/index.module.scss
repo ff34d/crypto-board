@@ -1,0 +1,53 @@
+@use "$mixins" as *;
+
+.button {
+  cursor: pointer;
+
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  font-size: inherit;
+  color: inherit;
+
+  background-color: transparent;
+
+  &::before {
+    content: ">";
+
+    z-index: 1;
+    transform-origin: center center;
+
+    display: block;
+
+    font-size: 1rem;
+    font-weight: 900;
+    color: inherit;
+
+    opacity: 0;
+
+    transition: all 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: rotate(90deg);
+    opacity: 1;
+  }
+
+  &__arrow {
+    &--active::before {
+      opacity: 1;
+    }
+
+    &--up::before {
+      transform: rotate(-90deg) !important;
+    }
+
+    &--down::before {
+      transform: rotate(90deg) !important;
+    }
+  }
+}

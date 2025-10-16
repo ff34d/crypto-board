@@ -33,11 +33,19 @@ export default defineConfig([
       },
     },
     rules: {
+      /* === Unicorn === */
       "unicorn/filename-case": [
         "error",
         { cases: { pascalCase: true, camelCase: true } },
       ],
       "unicorn/prevent-abbreviations": "off",
+      "unicorn/no-null": "off",
+      "unicorn/no-array-sort": "off",
+
+      /* === React-hooks === */
+      "react-hooks/exhaustive-deps": "off",
+
+      /* === Typescript eslint === */
       "@typescript-eslint/no-unused-vars": [
         "error",
         {

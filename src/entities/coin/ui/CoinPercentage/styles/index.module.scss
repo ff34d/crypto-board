@@ -1,0 +1,28 @@
+.trend {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: flex-start;
+
+  &::before {
+    display: block;
+    font-size: 1rem;
+    color: inherit;
+  }
+
+  &--negative {
+    color: var(--color-error);
+
+    &::before {
+      content: "▼";
+    }
+  }
+
+  &--positive {
+    color: var(--color-success);
+
+    &::before {
+      content: "▲";
+    }
+  }
+}

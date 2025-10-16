@@ -1,0 +1,35 @@
+.header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  display: flex;
+
+  padding: 0.4rem var(--layout-padding-x);
+
+  background-color: #00000010;
+  backdrop-filter: blur(1rem);
+
+  &__heading-wrapper {
+    position: relative;
+  }
+
+  &__watermark {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    margin-left: 0.3rem;
+
+    &-img {
+      max-width: 5rem;
+      object-fit: contain;
+    }
+  }
+}

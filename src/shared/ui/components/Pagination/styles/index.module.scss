@@ -17,11 +17,19 @@
     &::after {
       width: 10px;
       height: 10px;
+
+      font-size: 1.5rem;
+      font-weight: 900;
       color: inherit;
     }
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      filter: brightness(40%);
     }
   }
 
