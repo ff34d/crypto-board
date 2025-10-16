@@ -67,12 +67,13 @@ export const CoinsTableRow: FC<Props> = ({
 
       {/* Coin 24 percentage trending  */}
       <td align="left">
-        <CoinTrendValue
-          trend={price_change_percentage_24h !== null && price_change_percentage_24h > 0}>
-          {price_change_percentage_24h
-            ? Math.abs(price_change_percentage_24h).toFixed(2) + "%"
-            : "–"}
-        </CoinTrendValue>
+        {price_change_percentage_24h ? (
+          <CoinTrendValue trend={price_change_percentage_24h > 0}>
+            {Math.abs(price_change_percentage_24h).toFixed(2) + "%"}
+          </CoinTrendValue>
+        ) : (
+          <span>–</span>
+        )}
       </td>
 
       {/* Market capitalize */}
