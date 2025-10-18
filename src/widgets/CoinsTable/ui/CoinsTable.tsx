@@ -16,8 +16,9 @@ export const CoinsTable: FC = () => {
 
   const handleMovePage = (align: "prev" | "next") => {
     coinsMarkets.movePage(align)
-    coinsMarkets.fetchCoinsMarkets()
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    coinsMarkets.fetchCoinsMarkets().then(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    })
   }
 
   useEffect(() => {
