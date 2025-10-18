@@ -34,14 +34,12 @@ export const CoinsTable: FC = () => {
         <CoinsTableHeader />
 
         <tbody>
-          {coinsMarkets.data.map((coin) => {
-            return (
-              <CoinsTableRow
-                data={coin}
-                key={coin.id}
-              />
-            )
-          })}
+          {coinsMarkets.data.map((coin) => (
+            <CoinsTableRow
+              data={coin}
+              key={coin.id}
+            />
+          ))}
         </tbody>
       </Table>
 

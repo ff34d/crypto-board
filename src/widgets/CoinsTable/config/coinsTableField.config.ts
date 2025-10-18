@@ -1,4 +1,5 @@
 import type { CoinsMarketItem } from "@/entities/coin"
+import type { CoinsTableFieldItem } from "../types"
 
 type CoinsFiledKeys = keyof Pick<
   CoinsMarketItem,
@@ -10,11 +11,25 @@ type CoinsFiledKeys = keyof Pick<
   | "total_volume"
 >
 
-export const coinsTableFieldNameConfig: Record<CoinsFiledKeys, string> = {
-  market_cap_rank: "#",
-  name: "Coin",
-  current_price: "Price",
-  price_change_percentage_24h: "24h",
-  market_cap: "Market cap.",
-  total_volume: "Total volume",
+export const coinsTableFieldConfig: Record<CoinsFiledKeys, CoinsTableFieldItem> = {
+  market_cap_rank: {
+    title: "# 🏆",
+  },
+  name: {
+    title: "Coin 🪙",
+    sortableKeys: { asc: "id_asc", desc: "id_desc" },
+  },
+  current_price: {
+    title: "Price 💰",
+  },
+  price_change_percentage_24h: {
+    title: "24h ⏳",
+  },
+  market_cap: {
+    title: "Market cap. 🛒",
+    sortableKeys: { asc: "market_cap_asc", desc: "market_cap_desc" },
+  },
+  total_volume: {
+    title: "Total volume 📊",
+  },
 }

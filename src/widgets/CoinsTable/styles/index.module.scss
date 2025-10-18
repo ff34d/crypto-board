@@ -16,4 +16,18 @@
     aspect-ratio: 1/1;
     width: 1.5rem;
   }
+
+  &__coin-title {
+    overflow: hidden;
+
+    max-width: 15rem;
+
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+  }
+
+  &__coin-badge {
+    text-transform: uppercase;
+  }
 }

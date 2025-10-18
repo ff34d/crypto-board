@@ -1,1 +1,1 @@
-export * from "./CoinsTableHeaderItem"
+export * from "./CoinsTableFieldItem"

@@ -1,5 +1,6 @@
 import { CoinTrendValue, type CoinsMarketItem } from "@/entities/coin"
 import { Badge, Box, Text } from "@/shared/ui"
+import { formatCurrency, formatPercentage } from "@/shared/utils"
 import type { FC } from "react"
 import styles from "../styles/index.module.scss"
 
@@ -22,7 +23,7 @@ export const CoinsTableRow: FC<Props> = ({
   return (
     <tr>
       {/* Market rank */}
-      <td align="center">{market_cap_rank ?? "–"}</td>
+      <td align="center">{market_cap_rank}</td>
 
       {/* Coin name */}
       <td>
@@ -35,21 +36,15 @@ export const CoinsTableRow: FC<Props> = ({
 
           <Box gap={0.3}>
             <Text
-              style={{
-                lineHeight: 1.3,
-                maxWidth: "15rem",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-                textWrap: "nowrap",
-              }}
+              className={styles["table__coin-title"]}
               size="lg"
               weight={600}>
               {name}
             </Text>
             <Badge
+              className={styles["table__coin-badge"]}
               size="xs"
-              variant="secondary"
-              style={{ textTransform: "uppercase" }}>
+              variant="secondary">
               {symbol}
             </Badge>
           </Box>
@@ -58,18 +53,16 @@ export const CoinsTableRow: FC<Props> = ({
 
       {/* Coin price */}
       <td align="left">
-        {current_price
-          ? current_price < 0.01
-            ? "$" + current_price.toLocaleString("en-US", { minimumFractionDigits: 8 })
-            : "$" + current_price.toLocaleString("en-US")
-          : "–"}
+        {formatCurrency(current_price, {
+          minimumFractionDigits: current_price && current_price < 0.01 ? 8 : undefined,
+        })}
       </td>
 
       {/* Coin 24 percentage trending  */}
       <td align="left">
         {price_change_percentage_24h ? (
           <CoinTrendValue trend={price_change_percentage_24h > 0}>
-            {Math.abs(price_change_percentage_24h).toFixed(2) + "%"}
+            {formatPercentage(price_change_percentage_24h)}
           </CoinTrendValue>
         ) : (
           <span>–</span>
@@ -77,12 +70,10 @@ export const CoinsTableRow: FC<Props> = ({
       </td>
 
       {/* Market capitalize */}
-      <td align="left">{market_cap ? "$" + market_cap.toLocaleString("en-US") : "–"}</td>
+      <td align="left">{formatCurrency(market_cap)}</td>
 
       {/* Total volume */}
-      <td align="left">
-        {total_volume ? "$" + total_volume.toLocaleString("en-US") : "–"}
-      </td>
+      <td align="left">{formatCurrency(total_volume)}</td>
     </tr>
   )
 }

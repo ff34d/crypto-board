@@ -1,8 +1,12 @@
 import { useCoinsMarketsStore, type CoinsMarketOrder } from "@/entities/coin"
 import { SortButton } from "@/shared/ui"
 import type { FC } from "react"
-import { coinsTableHeaderConfig } from "../config"
+import { coinsTableFieldConfig } from "../config"
 import styles from "../styles/index.module.scss"
+import { identifyDirection } from "../utils"
+
+/* Fields config values array */
+const fields = Object.values(coinsTableFieldConfig)
 
 export const CoinsTableHeader: FC = () => {
   const order = useCoinsMarketsStore((s) => s.order)
@@ -17,31 +21,19 @@ export const CoinsTableHeader: FC = () => {
   return (
     <thead className={styles.table__header}>
       <tr>
-        {coinsTableHeaderConfig.map((item) => {
-          const sortableKeys = item.sortableKeys
-
-          let direction: "asc" | "desc" | null
-
-          if (order === sortableKeys?.asc) {
-            direction = "asc"
-          } else if (order === sortableKeys?.desc) {
-            direction = "desc"
-          } else direction = null
-
-          return (
-            <th key={item.title}>
-              {sortableKeys ? (
-                <SortButton
-                  direction={direction}
-                  onToggle={(direction) => onClick(sortableKeys[direction])}>
-                  {item.title}
-                </SortButton>
-              ) : (
-                <span>{item.title}</span>
-              )}
-            </th>
-          )
-        })}
+        {fields.map(({ sortableKeys, title }) => (
+          <th key={title}>
+            {sortableKeys ? (
+              <SortButton
+                direction={identifyDirection(order, sortableKeys)}
+                onToggle={(direction) => onClick(sortableKeys[direction])}>
+                <span style={{ textDecoration: "underline" }}>{title}</span>
+              </SortButton>
+            ) : (
+              <span>{title}</span>
+            )}
+          </th>
+        ))}
       </tr>
     </thead>
   )

@@ -1,1 +1,1 @@
-export * from "./coinsTableName.config"
+export * from "./coinsTableField.config"
