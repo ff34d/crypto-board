@@ -21,9 +21,12 @@ export const Tile = ({
   return (
     <Component
       {...args}
-      className={cn(styles.tile, styles[`tile__${size}`], styles[`tile__${variant}`], {
-        [className as string]: className,
-      })}>
+      className={cn(
+        styles.tile,
+        styles[`tile__${size}`],
+        styles[`tile__${variant}`],
+        className
+      )}>
       {children}
     </Component>
   )

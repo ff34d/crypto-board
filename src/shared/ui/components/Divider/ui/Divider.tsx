@@ -8,7 +8,7 @@ export const Divider: FC<Props> = ({ className, ...args }) => {
   return (
     <div
       {...args}
-      className={cn(styles.divider, { [className as string]: className })}
+      className={cn(styles.divider, className)}
     />
   )
 }

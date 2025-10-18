@@ -20,7 +20,7 @@ export const Input: FC<Props> = ({
         styles.input,
         styles[`input__${size}`],
         styles[`input__${variant}`],
-        { [className as string]: className }
+        className
       )}
     />
   )

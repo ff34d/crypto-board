@@ -22,7 +22,7 @@ export const Box: FC<Props> = ({
 }) => {
   return (
     <Component
-      className={cn({ [className as string]: className })}
+      className={cn(className)}
       style={{
         width: "100%",
         display: "flex",

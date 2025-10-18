@@ -10,9 +10,7 @@ export const Table: FC<Props> = ({ children, className, ...args }) => {
   return (
     <div
       {...args}
-      className={cn(styles.table__wrapper, {
-        [className as string]: className,
-      })}>
+      className={cn(styles.table__wrapper, className)}>
       <table className={styles.table}>{children}</table>
     </div>
   )

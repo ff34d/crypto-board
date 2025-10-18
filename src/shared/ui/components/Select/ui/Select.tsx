@@ -31,7 +31,7 @@ export const Select: FC<Props> = ({
         styles.select,
         styles[`select__${size}`],
         styles[`select__${variant}`],
-        { [className as string]: className }
+        className
       )}
       value={value}
       onChange={handleChange}>

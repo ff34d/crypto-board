@@ -13,9 +13,7 @@ export const Loader: FC<Props> = ({ width = 5, className, ...args }) => {
   return (
     <div
       {...args}
-      className={cn(styles.loader, {
-        [className as string]: className,
-      })}
+      className={cn(styles.loader, className)}
       style={{
         maxWidth: `${width}rem`,
         ...args.style,
