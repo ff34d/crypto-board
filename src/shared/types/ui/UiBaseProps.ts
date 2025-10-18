@@ -7,5 +7,8 @@ export interface UIBaseProps {
 }
 
 /* Clear api for ui kit unit */
-export type UIBasePropsWithHTMLElement<T extends HTMLElement = HTMLElement> =
-  Omit<HTMLProps<T>, keyof UIBaseProps> & UIBaseProps
+export type UIBasePropsWithHTMLElement<T extends HTMLElement = HTMLElement> = Omit<
+  HTMLProps<T>,
+  keyof UIBaseProps
+> &
+  UIBaseProps

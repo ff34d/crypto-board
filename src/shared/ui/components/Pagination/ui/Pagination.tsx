@@ -16,12 +16,15 @@ export const Pagination: FC<Props> = ({
   decrement,
 }) => {
   return (
-    <div className={styles.pagination}>
+    <div
+      className={styles.pagination}
+      data-cy="pagination">
       <button
         className={cn(styles.pagination__button, styles[`pagination__button--prev`])}
         type="button"
         onClick={decrement}
         disabled={currentPage === 1}
+        data-cy="pagination-prev-button"
       />
 
       <span>
@@ -33,6 +36,7 @@ export const Pagination: FC<Props> = ({
         type="button"
         onClick={increment}
         disabled={currentPage === totalPages}
+        data-cy="pagination-next-button"
       />
     </div>
   )
