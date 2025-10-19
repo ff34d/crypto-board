@@ -30,7 +30,9 @@ export const CoinsTable: FC = () => {
   if (!coinsMarkets.data) return <Text>No math coins</Text>
 
   return (
-    <Box align="column">
+    <Box
+      align="column"
+      data-cy="coins-table">
       <Table className={styles.table}>
         <CoinsTableHeader />
 

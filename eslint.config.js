@@ -42,6 +42,7 @@ export default defineConfig([
       "unicorn/no-null": "off",
       "unicorn/no-array-sort": "off",
       "unicorn/numeric-separators-style": "off",
+      "unicorn/prefer-export-from": "off",
 
       /* === React-hooks === */
       "react-hooks/exhaustive-deps": "off",

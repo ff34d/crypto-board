@@ -21,7 +21,7 @@ export const CoinsTableRow: FC<Props> = ({
   },
 }) => {
   return (
-    <tr>
+    <tr id={`row-${symbol}`}>
       {/* Market rank */}
       <td align="center">{market_cap_rank}</td>
 

@@ -1,8 +1,7 @@
+import { coinsList, coinsMarkets } from "@fixtures"
 import axios from "axios"
 import AxiosMockAdapter from "axios-mock-adapter"
 import { ApiEndpoint } from "../types"
-import coinsList from "./_mocks/coinsList.json"
-import coinsMarkets from "./_mocks/coinsMarkets.json"
 
 export const axiosInstance = axios.create({
   baseURL: import.meta.env.API_URL,
