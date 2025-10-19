@@ -11,6 +11,7 @@
     "lint:eslint": "eslint . --fix",
     "lint:stylelint": "stylelint 'src/**/*.{css,scss}' 'src/**/*.module.scss' --fix",
     "cy:open": "cypress open",
+    "cy:component": "cypress run --component",
     "prepare": "husky"
   },
   "lint-staged": {
