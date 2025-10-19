@@ -24,7 +24,7 @@ export const Badge: FC<Props> = ({
         styles.badge,
         styles[`badge__${size}`],
         styles[`badge__${variant}`],
-        { [className as string]: className }
+        className
       )}
       style={{
         fontWeight: weight,

@@ -21,7 +21,7 @@ export const Skeleton: FC<Props> = ({
   return (
     <div
       {...args}
-      className={cn(styles.skeleton, { [className as string]: className })}
+      className={cn(styles.skeleton, className)}
       style={{
         maxWidth: `${width}rem`,
         minHeight: `${height}rem`,

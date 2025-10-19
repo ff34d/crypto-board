@@ -16,8 +16,9 @@ export const CoinsTable: FC = () => {
 
   const handleMovePage = (align: "prev" | "next") => {
     coinsMarkets.movePage(align)
-    coinsMarkets.fetchCoinsMarkets()
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    coinsMarkets.fetchCoinsMarkets().then(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    })
   }
 
   useEffect(() => {
@@ -29,19 +30,19 @@ export const CoinsTable: FC = () => {
   if (!coinsMarkets.data) return <Text>No math coins</Text>
 
   return (
-    <Box align="column">
+    <Box
+      align="column"
+      data-cy="coins-table">
       <Table className={styles.table}>
         <CoinsTableHeader />
 
         <tbody>
-          {coinsMarkets.data.map((coin) => {
-            return (
-              <CoinsTableRow
-                data={coin}
-                key={coin.id}
-              />
-            )
-          })}
+          {coinsMarkets.data.map((coin) => (
+            <CoinsTableRow
+              data={coin}
+              key={coin.id}
+            />
+          ))}
         </tbody>
       </Table>
 

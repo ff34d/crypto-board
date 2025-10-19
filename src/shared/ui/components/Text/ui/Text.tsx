@@ -18,9 +18,7 @@ export const Text: FC<Props> = ({
   return (
     <p
       {...args}
-      className={cn(styles.text, styles[`text__${size}`], {
-        [className as string]: className,
-      })}
+      className={cn(styles.text, styles[`text__${size}`], className)}
       style={{
         fontWeight: weight,
         ...args.style,

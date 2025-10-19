@@ -23,7 +23,7 @@ export const Button: FC<Props> = ({
         styles.button,
         styles[`button__${size}`],
         styles[`button__${variant}`],
-        { [className as string]: className }
+        className
       )}
       type={type}
       {...args}>

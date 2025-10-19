@@ -28,7 +28,7 @@ export const SortButton: FC<Props> = ({
       {...args}
       onClick={onClick}
       type="button">
-      <span>{children}</span>
+      {children}
     </button>
   )
 }
