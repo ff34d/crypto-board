@@ -1,31 +1,10 @@
-import type { AxiosError } from "axios"
+import { createApiSlice, type ApiSliceState } from "@/shared/stores"
 import { create } from "zustand"
 import { coinService } from "../api"
 import type { CoinsListItem } from "../types"
 
-interface State {
-  /* === Api === */
-  isLoading: boolean
-  error: AxiosError | null
-  data: CoinsListItem[] | null
-  fetchCoinsList: () => Promise<void>
-}
+type State = ApiSliceState<CoinsListItem[]>
 
-export const useCoinsListStore = create<State>((set) => ({
-  isLoading: false,
-  error: null,
-  data: null,
-
-  fetchCoinsList: async () => {
-    set({ isLoading: true, error: null })
-
-    try {
-      const res = await coinService.getCoinsList()
-      set({ data: res.data })
-    } catch (error) {
-      set({ error: error as AxiosError })
-    } finally {
-      set({ isLoading: false })
-    }
-  },
+export const useCoinsListStore = create<State>((set, get, store) => ({
+  ...createApiSlice(() => coinService.getCoinsList())(set, get, store),
 }))

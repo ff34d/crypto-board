@@ -14,16 +14,15 @@ export const CoinsTable: FC = () => {
     [coinsList.data]
   )
 
-  const handleMovePage = (align: "prev" | "next") => {
+  const handleMovePage = async (align: "prev" | "next") => {
     coinsMarkets.movePage(align)
-    coinsMarkets.fetchCoinsMarkets().then(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    })
+    await coinsMarkets.fetch()
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   useEffect(() => {
-    if (!coinsList.data) coinsList.fetchCoinsList()
-    if (!coinsMarkets.data) coinsMarkets.fetchCoinsMarkets()
+    if (!coinsList.data) coinsList.fetch()
+    if (!coinsMarkets.data) coinsMarkets.fetch()
   }, [])
 
   if (coinsMarkets.isLoading && !coinsMarkets.data) return <Loader />
@@ -34,7 +33,9 @@ export const CoinsTable: FC = () => {
       align="column"
       data-cy="coins-table">
       <Table className={styles.table}>
-        <CoinsTableHeader />
+        <thead className={styles.table__header}>
+          <CoinsTableHeader />
+        </thead>
 
         <tbody>
           {coinsMarkets.data.map((coin) => (
