@@ -1,3 +1,4 @@
+import { CoinPage } from "@/pages/components/coin"
 import { MainPage } from "@/pages/components/main"
 import { MainLayout } from "@/pages/layouts/MainLayout"
 import { routes } from "@/shared/configs"
@@ -13,6 +14,11 @@ export const router = createHashRouter([
       {
         index: true,
         Component: MainPage,
+      },
+      /* Coin page */
+      {
+        path: routes.coin,
+        Component: CoinPage,
       },
     ],
   },
