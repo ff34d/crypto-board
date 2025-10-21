@@ -28,5 +28,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "cypress/support", ".fixtures/index.ts"]
+  "include": ["src", "cypress/support", ".fixtures/index.ts", ".fixtures/coins/index.ts"]
 }

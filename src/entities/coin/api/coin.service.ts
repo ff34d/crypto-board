@@ -1,5 +1,5 @@
 import { ApiEndpoint, http } from "@/shared/api"
-import type { CoinsListItem, CoinsMarketItem, GetCoinsMarketProps } from "../types"
+import type { Coin, CoinsListItem, CoinsMarketItem, GetCoinsMarketProps } from "../types"
 
 export const coinService = {
   async getCoinsMarkets({ perPage, page, order }: GetCoinsMarketProps) {
@@ -17,9 +17,16 @@ export const coinService = {
   },
 
   async getCoinsList() {
-    return http<CoinsListItem[]>({
+    return await http<CoinsListItem[]>({
       method: "GET",
       url: ApiEndpoint.getCoinsList,
+    })
+  },
+
+  async getCoin(id: string) {
+    return await http<Coin>({
+      method: "GET",
+      url: ApiEndpoint.getCoin + `/${id}`,
     })
   },
 }

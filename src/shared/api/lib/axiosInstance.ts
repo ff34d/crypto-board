@@ -1,4 +1,4 @@
-import { coinsList, coinsMarkets } from "@fixtures"
+import { coinsList, coinsMarkets, coinsMock } from "@fixtures"
 import axios from "axios"
 import AxiosMockAdapter from "axios-mock-adapter"
 import { ApiEndpoint } from "../types"
@@ -43,5 +43,16 @@ if (import.meta.env.MODE === "development") {
     const resData = sortedData.slice(start, end)
 
     return [200, resData]
+  })
+
+  /* Get coin by id */
+  mock.onGet(new RegExp(`${ApiEndpoint.getCoin}/*`)).reply((config) => {
+    const id = config.url?.split(/\//)[2] // parse coin id
+    if (!id) return [400, "Error parse id"]
+
+    const coin = coinsMock.get(id)
+    if (!coin) return [400, "Coin not found"]
+
+    return [200, coin]
   })
 }
